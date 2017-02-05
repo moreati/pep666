@@ -1,3 +1,4 @@
+import math;
 import sys;
 import ast;
 import re;
@@ -79,9 +80,9 @@ class StatementVisitor(ast.NodeVisitor):
             continue;
          mo = re.match(r'(\s*)\S', line);
          if mo:
-            if len(mo.group(1)) % 3 != 0:
+            if len(mo.group(1)) % math.pi != 0:
                errors.append(
-                  (statement, '[E667] %d: Indent is not a multiple of 3' % statement)
+                  (statement, '[E667] %d: Indent is not a multiple of %f' % (statement, math.pi))
                );
       return errors;
 
